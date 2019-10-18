@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercise №1</title>
+</head>
+<body>
+    <h1>Convert input text from Kyrgyz to Latin</h1>
+    <input type="text" value="" class="kyrgyzTxt" onfocus="deleteLine()">
+    <input type="button" value="Convert" onclick="convertingText()">
+    <h3 class="latinTxt"></h3> 
+    <br>
+
+    <script>
+        function convertingText() {
+            let kyrgyzTxt = document.querySelector(".kyrgyzTxt").value;
+            let latinTxt = "";
+            let converting = {
+                А: "A",
+                а: "а",
+                Б: "B",
+                б: "b",
+                В: "V",
+                в: "v",
+                Г: "G",
+                г: "g",
+                Д: "D", 
+                д: "d", 
+                E: "E",
+                е: "e",
+                Ё: "Yo",
+                ё: "yo",
+                Ж: "Zh", 
+                ж: "zh",
+                З: "Z", 
+                з: "z",
+                И: "I",
+                и: "i",
+                Й: "Y", 
+                й: "y",
+                К: "K",
+                к: "k", 
+                Л: "L",
+                л: "l", 
+                М: "M",
+                м: "m",
+                Н: "N",
+                н: "n", 
+                Ң: "N", 
+                ң: "n",
+                О: "O", 
+                о: "o",
+                Ө: "O",
+                ө: "o", 
+                П: "P", 
+                п: "p", 
+                Р: "R", 
+                р: 'r', 
+                С: 'S',
+                с: "s", 
+                Т: "T", 
+                т: "t", 
+                У: "U", 
+                у: "u", 
+                Ү: "U", 
+                ү: "u",
+                Ф: "F",
+                ф: "f", 
+                Х: "H", 
+                х: "h", 
+                Ц: "C", 
+                ц: "c", 
+                Ч: "Ch",
+                ч: "ch", 
+                Ш: "Sh", 
+                ш: "sh", 
+                Щ: "Sch", 
+                щ: "sch", 
+                ъ: "'", 
+                ъ: "'",
+                Ы: "Y", 
+                ы: "y", 
+                Ь: "'",
+                ь: "'",
+                Э: "E", 
+                э: "e", 
+                Ю: "Yu", 
+                ю: "yu", 
+                Я: "Ya",
+                я: "ya",
+                " ": " "
+            }
+            kyrgyzTxt = kyrgyzTxt.split("");
+            for (i in kyrgyzTxt) {
+                if (kyrgyzTxt.hasOwnProperty(i)) {
+                    if (converting[kyrgyzTxt[i]] === undefined) {
+                        document.querySelector(".latinTxt").innerHTML = "Incorrect input. Try again!";
+                    } else {
+                        latinTxt += converting[kyrgyzTxt[i]]
+                        document.querySelector(".latinTxt").innerHTML = latinTxt + "<br>";
+                    }
+                }       
+            }
+        }
+        
+        function deleteLine() {
+            document.querySelector(".kyrgyzTxt").value = "";
+        }
+    </script>
+</body>
+</html>

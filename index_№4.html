@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <h1 class="descriptionTime">The background color of page will change after 60 min</h1>
+</head>
+<body>
+    <script>
+        setInterval(function(){
+            document.querySelector("body").bgColor = "red";
+            document.querySelector(".descriptionTime").innerHTML = "The background color of page will change after 20 min";
+        },3600000)
+        setInterval(function(){
+            document.querySelector("body").bgColor = "blue";
+            document.querySelector(".descriptionTime").innerHTML = "The background color of page will change after 5 min";
+        },4800000)         
+        setInterval(function(){
+            document.querySelector("body").bgColor = "yellow";
+            document.querySelector(".descriptionTime").innerHTML = "This is final background color of page";
+        },5100000)
+    </script>
+</body>
+</html>

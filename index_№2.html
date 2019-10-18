@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hangman</title>
+</head>
+<body onload="startUp()">
+    <h1>Guess a football player</h1>
+    <input id="letter" type="text" onfocus="deleteLine()">
+    <input type="button" value="Click!" onclick="letter()">
+    <p id="answer"></p>
+    <p id="counter"></p>
+    <p id="stat"></p>
+
+    <script>
+        var randomWordsArr = ["messi", "ronaldo", "neymar", "mbappe"];
+        var randomWord = randomWordsArr[Math.floor(Math.random() * randomWordsArr.length)];
+
+        var s;
+        var count = 0;
+        var answerArr = [];
+
+        function startUp() {
+            for (var i = 0; i < randomWord.length; i++) {
+                answerArr[i] = "_";
+            }
+
+            s = answerArr.join(" ");
+            document.getElementById("answer").innerHTML = s;
+
+        }
+
+        function letter() {
+            var letter = document.getElementById("letter").value;
+
+            if(letter.length > 0) {
+                for (var i = 0; i < randomWord.length; i++) {
+                    if (randomWord[i] === letter) {
+                        answerArr[i] = letter;
+                    }
+                }
+                count++;
+                document.getElementById("counter").innerHTML = "No of clicks: " + count;
+                document.getElementById("answer").innerHTML = answerArr.join(" ");
+            }
+
+            if (count > 5) {
+                document.getElementById("stat").innerHTML = "Come on, you should guess it right now!";
+            }
+        }
+
+        function deleteLine() {
+            document.querySelector(".kyrgyzTxt").value = "";
+        }
+    </script>
+</body>
+</html>

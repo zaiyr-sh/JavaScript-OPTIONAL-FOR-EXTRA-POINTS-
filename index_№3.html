@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <h2>Attendance of Students</h2>
+
+    <table>
+    <tr>
+        <th>Name, Surname</th>
+        <th>Date</th>
+        <th>Status</th>
+    </tr>
+    <tr>
+        <td>Belinda Burnett</td>
+        <td><p class="getDate"></p></td>
+        <td>
+            <input type="checkbox" onchange="toggleCheckboxChange()" class="checking">
+            <span id="text">Absent</span>
+        </td>
+    </tr>
+    <tr>
+        <td>Cael Mccanna</td>
+        <td><p class="getDate"></p></td>
+        <td>
+            <input type="checkbox" onchange="toggleCheckboxChange()" class="checking">
+            <span id="text">Absent</span>
+        </td>
+    </tr>
+    <tr>
+        <td>Averie Zhang</td>
+        <td><p class="getDate"></p></td>
+        <td>
+            <input type="checkbox" onchange="toggleCheckboxChange()" class="checking">
+            <span id="text">Absent</span>
+        </td>
+    </tr>
+    <tr>
+        <td>Zoey Burton</td>
+        <td><p class="getDate"></p></td>
+        <td>
+            <input type="checkbox" onchange="toggleCheckboxChange()" class="checking">
+            <span id="text">Absent</span>
+        </td>
+    </tr>
+    <tr>
+        <td>Lisa Mclean</td>
+        <td><p class="getDate"></p></td>
+        <td>
+            <input type="checkbox" onchange="toggleCheckboxChange()" class="checking">
+            <span id="text">Absent</span>
+        </td>
+    </tr>
+    <tr>
+        <td>Tyler Paul</td>
+        <td><p class="getDate"></p></td>
+        <td>
+            <input type="checkbox" onchange="toggleCheckboxChange()" class="checking">
+            <span id="text">Absent</span>
+        </td>
+    </tr>
+    </table>
+    <script>
+        var getDate = document.querySelectorAll(".getDate");
+        var d = new Date();
+        var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+        
+        getDate.forEach(function(date) {
+            date.innerHTML = months[d.getMonth()] + ", " + d.getDay();
+        });
+
+        function toggleCheckboxChange() {
+            var elements = document.querySelectorAll(".checking");
+            console.log(elements.length)
+            var text = document.querySelectorAll("#text");
+            for (let i = 0; i < elements.length; i ++) {
+                if (elements[i].checked == true){
+                    text[i].innerHTML = "Present";
+                } else {
+                    text[i].innerHTML = "Absent";
+                }
+                    }
+            }
+            
+    </script>
+</body>
+</html>
