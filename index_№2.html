@@ -15,7 +15,7 @@
     <p id="stat"></p>
 
     <script>
-        var randomWordsArr = ["messi", "ronaldo", "neymar", "mbappe"];
+        var randomWordsArr = ["messi", "ronaldo", "neymar", "mbappe", "suarez", "aguero", "neuer", "ramos"];
         var randomWord = randomWordsArr[Math.floor(Math.random() * randomWordsArr.length)];
 
         var s;
@@ -45,14 +45,14 @@
                 document.getElementById("counter").innerHTML = "No of clicks: " + count;
                 document.getElementById("answer").innerHTML = answerArr.join(" ");
             }
-
-            if (count > 5) {
-                document.getElementById("stat").innerHTML = "Come on, you should guess it right now!";
+        
+            if (count === randomWord.length) {
+                document.getElementById("stat").innerHTML = "You guessed it!";
             }
         }
 
         function deleteLine() {
-            document.querySelector(".kyrgyzTxt").value = "";
+            document.getElementById("letter").value = "";
         }
     </script>
 </body>
